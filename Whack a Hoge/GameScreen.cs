@@ -75,7 +75,8 @@ namespace Whack_a_Hoge
         }
         private void HideAllMoles()
         {
-            
+            //Hides moles
+           
             pictureBox1.Visible = false;
             pictureBox1.Enabled = false;
         }
