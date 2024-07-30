@@ -25,5 +25,18 @@ namespace Whack_a_Hoge
             gameScreen.Show(); //shows the next screen
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LeaderboardScreen leaderboardScreen = new LeaderboardScreen();
+            this.Hide();
+            leaderboardScreen.Show();
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }

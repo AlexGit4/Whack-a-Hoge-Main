@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Whack_a_Hoge
 {
     public partial class GameScreen : Form
@@ -18,16 +20,19 @@ namespace Whack_a_Hoge
         //Hit boolean for scoring
         public bool moleIsHit = false;
         //Hit and misses variable.
-        public int Hits = 0;
+        public static int Hits = 0;
         public int Misses = -1;
+        bool Playing = true;
         public GameScreen()
         {
             InitializeComponent();
             pictureBox1.Location = new System.Drawing.Point(351, 145);
-
+            
         }
 
-        private void ChangeMole(object sender, EventArgs e)
+       
+
+        void ChangeMole(object sender, EventArgs e)
         {
             //pictureBox1.Image = Image.FromFile(@"C:\Users\21077\OneDrive - Bayfield High School\Pictures\ezgif.com-animated-gif-maker2.gif");
             timer2.Enabled = true;
@@ -40,15 +45,22 @@ namespace Whack_a_Hoge
             }
 
             label2.Text = ("Misses: " + Misses);
-
+            if (Misses == 10)
+            {
+                
+                EndScreen EndScreen = new EndScreen(); //creates a variable out of the next screen
+                this.Hide(); //"this" refers to the currently open screen.
+                EndScreen.Show(); //shows the next screen
+                this.Close();
+            }
             //Reset boolean
             moleIsHit = false;
-            
+
         }
 
         void RandomMoleShow()
         {
-            
+
             //Put location into two arrays.
             int[] XLocations = { 124, 299, 320, 474, 166, 520 };
             int[] YLocations = { 201, 248, 138, 82, 86, 197 };
@@ -73,22 +85,23 @@ namespace Whack_a_Hoge
 
 
         }
-        private void HideAllMoles()
+        void HideAllMoles()
         {
             //Hides moles
-           
+
             pictureBox1.Visible = false;
             pictureBox1.Enabled = false;
         }
 
-        private void HitMole(object sender, EventArgs e)
+        void HitMole(object sender, EventArgs e)
         {
-            
+
             //hide mole
             pictureBox1.Visible = false;
             pictureBox1.Enabled = false;
 
-            
+
+
             //set hit to true
             moleIsHit = true;
             //Add to hits
@@ -103,17 +116,20 @@ namespace Whack_a_Hoge
             label3.Text = ("Level: " + level);
         }
 
-        private void ChangeSprite(object sender, EventArgs e)
+        void ChangeSprite(object sender, EventArgs e)
         {
             //pictureBox1.Image = Image.FromFile(@"C:\Users\21077\OneDrive - Bayfield High School\Pictures\ezgif.com-animated-gif-maker.gif");
             //timer2.Enabled = false;
             //timer3.Enabled = true;
         }
 
-        private void Stopsprite(object sender, EventArgs e)
+        void Stopsprite(object sender, EventArgs e)
         {
-            
+
             //timer3.Enabled = false;
         }
+
+
+
     }
 }
