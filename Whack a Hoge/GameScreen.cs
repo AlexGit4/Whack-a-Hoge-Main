@@ -27,7 +27,9 @@ namespace Whack_a_Hoge
         {
             InitializeComponent();
             pictureBox1.Location = new System.Drawing.Point(351, 145);
-            
+            moleIsHit = false;
+            Hits = 0;
+            Misses = -1;
         }
 
        
@@ -109,7 +111,7 @@ namespace Whack_a_Hoge
             //Set Level to hits / 5
             int level = Convert.ToInt32(Math.Ceiling((double)Hits / 5));
             //make interval faster
-            timer1.Interval = 2000 - (level * 50);
+            timer1.Interval = 2000 - (level * 100);
             //set hit label to display hit amounts
             label1.Text = ("Hits: " + Hits);
             //set level label to desplay level

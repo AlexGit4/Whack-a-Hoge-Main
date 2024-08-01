@@ -38,5 +38,10 @@ namespace Whack_a_Hoge
         {
             Environment.Exit(1);
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Whack_a_Hoge
             Username = textBox1.Text;
             using (StreamWriter sw = new StreamWriter("Leaderboard.txt", true))
             {
-                sw.WriteLine(Username + ": " + Score + " Hits");
+                sw.WriteLine(Username + "-" + Score);
 
             }
 
