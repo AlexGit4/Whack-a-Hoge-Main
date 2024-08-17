@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,31 +20,48 @@ namespace Whack_a_Hoge
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Open Game Screen
+        private void gameButton_Click(object sender, EventArgs e)
         {
-            
-            GameScreen gameScreen = new GameScreen(); //creates a variable out of the next screen
-            this.Hide(); //"this" refers to the currently open screen.
-            gameScreen.Show(); //shows the next screen
-            
+            //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
+            GameScreen gameScreen = new GameScreen();
+            this.Hide();
+            gameScreen.Show();     
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //Leaderboard button
+        private void leaderboardButton_Click(object sender, EventArgs e)
         {
+            //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             LeaderboardScreen leaderboardScreen = new LeaderboardScreen();
             this.Hide();
-            leaderboardScreen.Show();
-            
+            leaderboardScreen.Show();           
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
+        //exit button
+        private void exitButton_Click(object sender, EventArgs e)
+        {           
             Environment.Exit(1);
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        //Tutorial Button
+        private void tutorialButton_Click(object sender, EventArgs e)
         {
-            
+            //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
+            TutorialScreen tutorialScreen = new TutorialScreen();
+            this.Hide();
+            tutorialScreen.Show();
+        }
+
+        //easter egg for when hogan is clicked
+        private void Hur(object sender, EventArgs e)
+        {
+            exitButton.Visible = false;
+            label1.Text = "NO ESCAPE";
+            label2.Visible = false;
+            BackColor = Color.Black;
+            SoundPlayer simpleSound = new SoundPlayer("Microsoft Windows XP Error - Sound Effect (HD).wav");
+            simpleSound.Play();
         }
     }
 }

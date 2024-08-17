@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -45,15 +45,13 @@
             // 
             // button1
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.backButton.Location = new System.Drawing.Point(28, 31);
-            this.backButton.Name = "button1";
-            this.backButton.Size = new System.Drawing.Size(82, 30);
-            this.backButton.TabIndex = 10;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.button1.Location = new System.Drawing.Point(28, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -72,7 +70,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(216)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "LeaderboardScreen";
             this.Text = "LeaderboardScreen";
@@ -84,7 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

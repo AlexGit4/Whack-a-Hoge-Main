@@ -31,12 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,14 +44,44 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(314, 134);
+            this.pictureBox1.Location = new System.Drawing.Point(308, 146);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             this.pictureBox1.Click += new System.EventHandler(this.HitMole);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 391);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 60);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Hits: 0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(554, 391);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(219, 60);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Misses: 0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(594, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 60);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Level: 0";
             // 
             // timer1
             // 
@@ -60,46 +89,11 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.ChangeMole);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 391);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 50);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Hits: 0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(414, 391);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(292, 50);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Misses: 0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(477, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(262, 50);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Level: 0";
-            // 
             // timer2
             // 
             this.timer2.Enabled = true;
-            this.timer2.Interval = 1400;
-            this.timer2.Tick += new System.EventHandler(this.ChangeSprite);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 600;
-            this.timer3.Tick += new System.EventHandler(this.Stopsprite);
+            this.timer2.Interval = 2;
+            this.timer2.Tick += new System.EventHandler(this.AnimationFunction);
             // 
             // GameScreen
             // 
@@ -122,11 +116,10 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Timer timer3;
     }
 }
