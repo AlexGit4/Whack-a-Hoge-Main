@@ -38,9 +38,11 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tutorialButton = new System.Windows.Forms.Button();
+            this.MusicPlay = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,13 +68,13 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // button1
+            // gameButton
             // 
             this.gameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.gameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gameButton.Location = new System.Drawing.Point(357, 256);
-            this.gameButton.Name = "button1";
+            this.gameButton.Name = "gameButton";
             this.gameButton.Size = new System.Drawing.Size(109, 60);
             this.gameButton.TabIndex = 7;
             this.gameButton.Text = "Play";
@@ -105,26 +107,26 @@
             this.label2.Text = "DISCLAIMER: This Game does not endorse Mr. Hogan. ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button2
+            // leaderboardButton
             // 
             this.leaderboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.leaderboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leaderboardButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.leaderboardButton.Location = new System.Drawing.Point(341, 322);
-            this.leaderboardButton.Name = "button2";
+            this.leaderboardButton.Name = "leaderboardButton";
             this.leaderboardButton.Size = new System.Drawing.Size(144, 30);
             this.leaderboardButton.TabIndex = 10;
             this.leaderboardButton.Text = "Leaderboard";
             this.leaderboardButton.UseVisualStyleBackColor = false;
             this.leaderboardButton.Click += new System.EventHandler(this.leaderboardButton_Click);
             // 
-            // button3
+            // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.exitButton.Location = new System.Drawing.Point(383, 358);
-            this.exitButton.Name = "button3";
+            this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(62, 32);
             this.exitButton.TabIndex = 11;
             this.exitButton.Text = "Exit";
@@ -144,18 +146,28 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.Hur);
             // 
-            // button4
+            // tutorialButton
             // 
             this.tutorialButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.tutorialButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorialButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tutorialButton.Location = new System.Drawing.Point(673, 411);
-            this.tutorialButton.Name = "button4";
+            this.tutorialButton.Name = "tutorialButton";
             this.tutorialButton.Size = new System.Drawing.Size(113, 32);
             this.tutorialButton.TabIndex = 13;
             this.tutorialButton.Text = "How to play";
             this.tutorialButton.UseVisualStyleBackColor = false;
             this.tutorialButton.Click += new System.EventHandler(this.tutorialButton_Click);
+            // 
+            // MusicPlay
+            // 
+            this.MusicPlay.Enabled = true;
+            this.MusicPlay.Location = new System.Drawing.Point(559, 122);
+            this.MusicPlay.Name = "MusicPlay";
+            this.MusicPlay.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlay.OcxState")));
+            this.MusicPlay.Size = new System.Drawing.Size(189, 121);
+            this.MusicPlay.TabIndex = 14;
+            this.MusicPlay.Visible = false;
             // 
             // MenuScreen
             // 
@@ -163,6 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(190)))), ((int)(((byte)(162)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MusicPlay);
             this.Controls.Add(this.tutorialButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.exitButton);
@@ -172,11 +185,13 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.gameButton);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "MenuScreen";
             this.Text = "MenuScreen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +208,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button tutorialButton;
+        private AxWMPLib.AxWindowsMediaPlayer MusicPlay;
     }
 }

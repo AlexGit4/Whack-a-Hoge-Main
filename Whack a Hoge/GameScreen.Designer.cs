@@ -106,6 +106,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "GameScreen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

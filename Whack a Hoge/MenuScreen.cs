@@ -11,18 +11,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Whack_a_Hoge
 {
     public partial class MenuScreen : Form
     {
+        //checks if music is already playing, to prevent overlap while switching forms
+        public static bool isMusicPlaying = false;
+
         public MenuScreen()
         {
             InitializeComponent();
+            //if music isnt currently playing, then start playing it through media player. Play count is set high so that it loops practically infinitely
+            if (isMusicPlaying == false)
+            {
+                MusicPlay.URL = @"MainTrack.wav";
+                MusicPlay.settings.playCount = 9999;
+                MusicPlay.settings.volume = 10;
+                MusicPlay.Visible = false;
+                MusicPlay.Ctlcontrols.play();
+                
+            }
+            
+
         }
 
         //Open Game Screen
         private void gameButton_Click(object sender, EventArgs e)
         {
+            //Plays click sound.
+            SoundPlayer click = new SoundPlayer("ui-click-43196.wav");
+            click.Play();
             //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             GameScreen gameScreen = new GameScreen();
             this.Hide();
@@ -32,6 +51,9 @@ namespace Whack_a_Hoge
         //Leaderboard button
         private void leaderboardButton_Click(object sender, EventArgs e)
         {
+            //Plays click sound.
+            SoundPlayer click = new SoundPlayer("ui-click-43196.wav");
+            click.Play();
             //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             LeaderboardScreen leaderboardScreen = new LeaderboardScreen();
             this.Hide();
@@ -40,13 +62,16 @@ namespace Whack_a_Hoge
 
         //exit button
         private void exitButton_Click(object sender, EventArgs e)
-        {           
-            Environment.Exit(1);
+        {            
+            Environment.Exit(0);
         }
 
         //Tutorial Button
         private void tutorialButton_Click(object sender, EventArgs e)
         {
+            //Plays click sound.
+            SoundPlayer click = new SoundPlayer("ui-click-43196.wav");
+            click.Play();
             //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             TutorialScreen tutorialScreen = new TutorialScreen();
             this.Hide();

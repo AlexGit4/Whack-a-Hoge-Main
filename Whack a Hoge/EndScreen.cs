@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Whack_a_Hoge
 {
@@ -70,6 +71,11 @@ namespace Whack_a_Hoge
                 sw.WriteLine();
                 sw.Write(Username + "-" + Score);
             }
+            //sets the music playing to true, to avoid overlap.
+            MenuScreen.isMusicPlaying = true;
+            //Plays click sound.
+            SoundPlayer click = new SoundPlayer("ui-click-43196.wav");
+            click.Play();
             //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             MenuScreen menuScreen = new MenuScreen();
             this.Hide();

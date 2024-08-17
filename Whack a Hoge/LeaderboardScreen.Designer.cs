@@ -43,12 +43,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "LEADERBOARD";
             // 
-            // button1
+            // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.backButton.Location = new System.Drawing.Point(28, 31);
-            this.backButton.Name = "button1";
+            this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(82, 30);
             this.backButton.TabIndex = 10;
             this.backButton.Text = "Back";
@@ -74,6 +74,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "LeaderboardScreen";
             this.Text = "LeaderboardScreen";
             this.ResumeLayout(false);

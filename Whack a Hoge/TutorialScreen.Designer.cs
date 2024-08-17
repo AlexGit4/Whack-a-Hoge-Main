@@ -108,19 +108,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(65, 338);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(322, 50);
+            this.label4.Size = new System.Drawing.Size(263, 55);
             this.label4.TabIndex = 14;
             this.label4.Text = "Misses: 10";
             // 
-            // button1
+            // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(214)))), ((int)(((byte)(13)))));
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.backButton.Location = new System.Drawing.Point(25, 20);
-            this.backButton.Name = "button1";
+            this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(82, 30);
             this.backButton.TabIndex = 15;
             this.backButton.Text = "Back";
@@ -141,6 +141,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "TutorialScreen";
             this.Text = "TutorialScreen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

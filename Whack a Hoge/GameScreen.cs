@@ -193,5 +193,6 @@ namespace Whack_a_Hoge
             //due to mole scaling being from top left, need to offset position to keep bottom of mole in the hole and keep it centred horizontally
             pictureBox1.Location = new Point(currentPos.X + (fullWidth - pictureBox1.Width) / 2, currentPos.Y + (fullHeight - pictureBox1.Height));
         }
+
     }
 }

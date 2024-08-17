@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
@@ -134,11 +135,16 @@ namespace Whack_a_Hoge
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            //sets the music playing to true, to avoid overlap.
+            MenuScreen.isMusicPlaying = true;
+            //Plays click sound.
+            SoundPlayer click = new SoundPlayer("ui-click-43196.wav");
+            click.Play();
             //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
             MenuScreen menuScreen = new MenuScreen(); 
             this.Hide();
             menuScreen.Show();
             this.Close();
-        }
+        }       
     }
 }
