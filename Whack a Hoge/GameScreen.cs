@@ -33,6 +33,7 @@ namespace Whack_a_Hoge
         public Point currentPos;
         //where the mole will appear next
         public Point newPos;
+        const int LOSE_SCORE = 10;
 
         public GameScreen()
         {
@@ -48,6 +49,7 @@ namespace Whack_a_Hoge
             grow = true;
             Hits = 0;
             Misses = -1;
+            
         }
       
         //event for changing mole, and adding to misses. Called when mole expires and timer ends.
@@ -62,8 +64,8 @@ namespace Whack_a_Hoge
             }
             //display misses
             label2.Text = ("Misses: " + Misses);
-            //end game if misses reaches 10.
-            if (Misses == 10)
+            //end game if misses reaches a certain number.
+            if (Misses == LOSE_SCORE)
             {
                 //creates a variable out of the next screen. "this" refers to the currently open screen, which hides. Then shows the next screen.
                 EndScreen EndScreen = new EndScreen();               
