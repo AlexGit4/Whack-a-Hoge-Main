@@ -18,7 +18,9 @@ namespace Whack_a_Hoge
     {
         //checks if music is already playing, to prevent overlap while switching forms
         public static bool isMusicPlaying = false;
-
+        //Some variables that wont change
+        const int MUSIC_VOLUME = 10;
+        const int PLAY_COUNT = 9999; 
         public MenuScreen()
         {
             InitializeComponent();
@@ -26,8 +28,8 @@ namespace Whack_a_Hoge
             if (isMusicPlaying == false)
             {
                 MusicPlay.URL = @"MainTrack.wav";
-                MusicPlay.settings.playCount = 9999;
-                MusicPlay.settings.volume = 10;
+                MusicPlay.settings.playCount = PLAY_COUNT;
+                MusicPlay.settings.volume = MUSIC_VOLUME;
                 MusicPlay.Visible = false;
                 MusicPlay.Ctlcontrols.play();
                 

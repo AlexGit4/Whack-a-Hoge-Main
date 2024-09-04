@@ -33,7 +33,13 @@ namespace Whack_a_Hoge
         public Point currentPos;
         //where the mole will appear next
         public Point newPos;
+        //Sets constant variables for equations
         const int LOSE_SCORE = 10;
+        const int LEVEL_STEP = 5;
+        const int START_INTERVAL = 2000;
+        const double START_STEP = 0.2;
+        const double startingXScalePercent = 0.5;
+        const int LEVEL_DIVISOR = 100;
 
         public GameScreen()
         {
@@ -124,14 +130,14 @@ namespace Whack_a_Hoge
             moleIsHit = true;
             Hits++;
             //Set Level to hits / 5, rounded up. It is a double so that the rounding works
-            int level = Convert.ToInt32(Math.Ceiling((double)Hits / 5));   
+            int level = Convert.ToInt32(Math.Ceiling((double)Hits / LEVEL_STEP));   
             //make interval faster if level is under 15. Else, stay the same
             if (level < 15)
             {
                 //make the interval change with the level, by incorperating it into equation. Interval is in milliseconds, so it begins at 2 seconds.
-                timer1.Interval = 2000 - (level * 100);
+                timer1.Interval = START_INTERVAL - (level * LEVEL_DIVISOR);
                 //make animation faster. Use level to calculate, so that the animation is faster when the mole disappears faster
-                animStep = 0.2 + (level / 100.0);
+                animStep = START_STEP + (level / LEVEL_DIVISOR);
             }
             //Set hit label to display hit amounts. Set level label to display level.
             label1.Text = ("Hits: " + Hits);
@@ -187,13 +193,15 @@ namespace Whack_a_Hoge
             //Sets final mole size
             int fullHeight = 98;
             int fullWidth = 151;
+            //unchanging divisor
+            const int XSCALE_CENTERING = 2;
             //only scale horizontally from 50% to 100%
-            double horizontalScale = 0.5 + 0.5 * scale;
+            double horizontalScale = startingXScalePercent + startingXScalePercent * scale;
             //setting Width and Height to percentage of final scale.
             pictureBox1.Width = Convert.ToInt32(fullWidth * horizontalScale);
             pictureBox1.Height = Convert.ToInt32(fullHeight * scale);
             //due to mole scaling being from top left, need to offset position to keep bottom of mole in the hole and keep it centred horizontally
-            pictureBox1.Location = new Point(currentPos.X + (fullWidth - pictureBox1.Width) / 2, currentPos.Y + (fullHeight - pictureBox1.Height));
+            pictureBox1.Location = new Point(currentPos.X + (fullWidth - pictureBox1.Width) / XSCALE_CENTERING, currentPos.Y + (fullHeight - pictureBox1.Height));
         }
 
     }
