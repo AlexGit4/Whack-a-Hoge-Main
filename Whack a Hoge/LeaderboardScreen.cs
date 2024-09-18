@@ -55,12 +55,13 @@ namespace Whack_a_Hoge
                 //Write out the scores and names onto the textbox, from console output.
                 for (int i = 0; i < scoreArray.Length; i++)
                 {
-  
+                    //Number to add to previous placing. Won't change
+                    const int PLACE_STEP = 1;
                     //Checks if the score is the same as the previous entry. This is for cases where players have equal scores.
                     if (scoreArray[i] != prevScore)
                     {
                         //if the scores are not the same, write the placing as the previous + 1
-                        Console.Write((oldPlacing + 1) + GetPlacingSuffix(oldPlacing+1) + ": " + nameArray[i] + " " + scoreArray[i]);
+                        Console.Write((oldPlacing + PLACE_STEP) + GetPlacingSuffix(oldPlacing + PLACE_STEP) + ": " + nameArray[i] + " " + scoreArray[i]);
                         Console.WriteLine();
                         //add to previous placing
                         oldPlacing++;
@@ -86,7 +87,8 @@ namespace Whack_a_Hoge
                 //it's different for the teens, eg 11th not 11st also 111th, 313th etc. So we have to check those too. eg for 113 this will be 13.
                 int teens = placing % 100;  
 
-                //checks each number for last digit and checks that it isnt a teen.
+                //checks each number for last digit and checks that it isnt a teen (Difference between 1st, 21st and 11th).
+                
                 if (lastDigit == 1 && teens != 11)
                 {
                     placingSuffix = "st";
